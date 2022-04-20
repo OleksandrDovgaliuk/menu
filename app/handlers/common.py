@@ -10,7 +10,7 @@ async def cmd_cancel(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer('Дію відсінено', reply_markup=types.ReplyKeyboardRemove)
 
-def registr_handlers_common(dp: Dispatcher):
+def register_handlers_common(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start', state='*')
     dp.register_message_handler(cmd_cancel, commands='cancel', state='*')
     dp.register_message_handler(cmd_cancel, Text(equals='відміна', ignore_case=True), state='*')

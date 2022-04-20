@@ -38,7 +38,7 @@ async def food_size_start(message: types.Message, state: FSMContext):
                          f'Тепер ви можете вибрати напій: /drinks', reply_markup=types.ReplyKeyboardRemove)
     await state.finish()
 
-def registr_food_handlers(dp: Dispatcher):
+def register_food_handlers(dp: Dispatcher):
     dp.register_message_handler(food_start, commands='food', state='*')
     dp.register_message_handler(food_chosen, state=orderFood.waiting_for_food_name)
     dp.register_message_handler(food_size_start, state=orderFood.waiting_for_food_size)
